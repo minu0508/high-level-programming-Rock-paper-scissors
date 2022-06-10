@@ -1,8 +1,6 @@
 package MidTest01;
 import java.util.Scanner;
 
-// 컴퓨터와 가위바위보 총 10판을 하는 게임 입니다.
-
 public class MIDTEST {
 
 	/**
