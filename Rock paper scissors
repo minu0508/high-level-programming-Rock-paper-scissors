@@ -1,0 +1,66 @@
+package MidTest01;
+import java.util.Scanner;
+
+// 컴퓨터와 가위바위보 총 10판을 하는 게임 입니다.
+
+public class MIDTEST {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] user = new String[1];
+		String[] Computer = new String[1];
+		int draw = 0;
+		int delete = 0;
+		int win = 0;
+		int WinProbabillity = 0;
+		int DeleteProbabillity = 0;
+		int DrawProbabillity = 0;
+		
+		System.out.println("컴퓨터와 총 10판의 가위바위보를 붙어보자!!");
+		for (int i = 0; i<10; i++) {
+			System.out.println("-------"+(i+1)+"번째 판"+"-------");
+			System.out.print("사용자가 낼 것은?: ");
+			user[0] = sc.next();
+		
+			int num = (int)(Math.random()*3)+1;
+			if (num == 1) {
+				Computer[0] = "가위";
+			} else if (num == 2){
+				Computer[0] = "바위";
+			} else {
+				Computer[0] = "보";
+			}
+			
+			System.out.println("가위.. 바위.. 보!");
+			System.out.println("사용자가 낸 것: " + user[0]);
+			System.out.println("컴퓨터가 낸 것: " + Computer[0]);
+	
+		
+			if (user[0].equals(Computer[0])) {
+				draw += 1;
+				System.out.println("앗... 비겼다!");
+			} else if ((user[0].equals("가위") && Computer[0].equals("바위")) || (user[0].equals("바위") && Computer[0].equals("보")) || (user[0].equals("보") && Computer[0].equals("가위"))) {
+				delete += 1;
+				System.out.println("아? 졌어;;");
+			} else if ((user[0].equals("가위") && Computer[0].equals("보")) || (user[0].equals("바위") && Computer[0].equals("가위")) || (user[0].equals("보") && Computer[0].equals("바위"))){
+				win += 1;
+				System.out.println("킼킼 쉽다~ 쉬워~");
+			} else {
+				delete += 1;
+				System.out.println("이상한 걸 내면 어떡해!");
+			}
+		
+		}
+		
+		System.out.println("-------- 종료! --------");
+		WinProbabillity = win * 10;
+		DeleteProbabillity = delete * 10;
+		DrawProbabillity = draw * 10;
+		System.out.println("사용자의 전적:" + win+"승"+delete+"패"+draw+"무");
+		System.out.println("사용자의 승/패/무 비율: "+WinProbabillity+"% / 질 확률: "+DeleteProbabillity+"% / 비길 확률: "+ DrawProbabillity+"%");
+	}
+
+}
